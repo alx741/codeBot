@@ -1,5 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include "uart.h"
+#include "servo.h"
 
 #define F_CPU 16000000
 #define X_CICLES 50
@@ -10,9 +12,10 @@ void y_fstep();
 void x_bstep();
 void y_bstep();
 
-
 int main(void)
 {
+    uart_init();
+    servo_init();
     DDRB = 0xFF;
     PORTB = 0x00;
     /* x_fstep(); */

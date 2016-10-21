@@ -10,7 +10,7 @@
 # 	avrdude
 
 
-FILE=firmware
+FILE=main
 MMCU=atmega328p
 AVRDUDE_PART=m328p
 AVRDUDE_PROGRAMMER=usbasp
@@ -27,11 +27,11 @@ CFLAGS += -g
 $(FILE).hex: $(FILE).elf
 	avr-objcopy -j .text -j .data -O ihex $< $@
 
-$(FILE).elf: $(FILE).c
-	avr-gcc $(CFLAGS) $< -o $@
+$(FILE).elf: $(FILE).c uart.c servo.c
+	avr-gcc $(CFLAGS) $^ -o $@
 
 clean:
 	rm $(FILE).elf $(FILE).hex
 
-burn:
-	avrdude -p $(AVRDUDE_PART) -c $(AVRDUDE_PROGRAMMER) -U flash:w:$(FILE).hex
+burn: $(FILE).hex
+	sudo avrdude -p $(AVRDUDE_PART) -c $(AVRDUDE_PROGRAMMER) -U flash:w:$(FILE).hex
