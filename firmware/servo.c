@@ -1,5 +1,6 @@
 #include "servo.h"
 #include <avr/io.h>
+#include <util/delay.h>
 
 #define SERVO_180 560
 #define SERVO_90 345
@@ -7,8 +8,8 @@
 #define SERVO_STEP 50
 
 #define SERVO_ANGLE_START 250
+#define SERVO_ANGLE_MIDDLE SERVO_90
 #define SERVO_ANGLE_END 400
-
 
 void servo_init()
 {
@@ -17,6 +18,14 @@ void servo_init()
     ICR1=4999; // PWM = 50Hz
     DDRB|=(1<<PORTB1)|(1<<PORTB2);
     servo_set(ANGLE_START);
+    _delay_ms(1000);
+    servo_set(ANGLE_MIDDLE);
+    _delay_ms(1000);
+    servo_set(ANGLE_END);
+    _delay_ms(1000);
+    servo_set(ANGLE_MIDDLE);
+    _delay_ms(1000);
+    servo_set(ANGLE_START);
 }
 
 void servo_set(angle a)
@@ -24,6 +33,10 @@ void servo_set(angle a)
     if (a == ANGLE_START)
     {
         OCR1A = SERVO_ANGLE_START;
+    }
+    else if (a == ANGLE_MIDDLE)
+    {
+        OCR1A = SERVO_ANGLE_MIDDLE;
     }
     else if (a == ANGLE_END)
     {
