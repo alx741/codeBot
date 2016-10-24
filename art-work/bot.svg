@@ -1,117 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="bot.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="348.44188"
-     inkscape:cy="823.50678"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1360"
-     inkscape:window-height="768"
-     inkscape:window-x="1366"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <rect
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:7.70823431;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4136"
-       width="221.2234"
-       height="101.01525"
-       x="219.20311"
-       y="139.18431" />
-    <rect
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:7.7152195;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4140"
-       width="153.5424"
-       height="164.95421"
-       x="253.04362"
-       y="240.19296" />
-    <rect
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:5.3072257;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4142"
-       width="35.436615"
-       height="70.982285"
-       x="217.71199"
-       y="356.23114" />
-    <rect
-       y="356.23114"
-       x="216.51262"
-       height="70.982285"
-       width="35.436615"
-       id="rect4144"
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:5.3072257;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <rect
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:5.3072257;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4146"
-       width="35.436615"
-       height="70.982285"
-       x="407.9126"
-       y="356.23114" />
-    <ellipse
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:7.70823431;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path4148"
-       cx="274.85715"
-       cy="175.32649"
-       rx="15.714286"
-       ry="24.464285" />
-    <ellipse
-       ry="24.464285"
-       rx="15.714286"
-       cy="175.32649"
-       cx="387"
-       id="ellipse4150"
-       style="fill:#0093d0;fill-opacity:0;stroke:#000000;stroke-width:7.70823431;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <path
-       sodipodi:type="spiral"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8.83971786;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0.5;stroke-dasharray:none;stroke-opacity:1"
-       id="path4152"
-       sodipodi:cx="334.84528"
-       sodipodi:cy="197.32898"
-       sodipodi:expansion="1"
-       sodipodi:revolution="2.6650989"
-       sodipodi:radius="31.797024"
-       sodipodi:argument="-20.157473"
-       sodipodi:t0="0.84823364"
-       d="m 360.36435,206.05987 c -4.01661,15.13772 -20.3458,23.66709 -35.2155,19.6103 -9.77845,-2.66778 -17.66767,-10.28464 -20.94378,-19.84247" />
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 220.1 311.3" style="enable-background:new 0 0 220.1 311.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:5;stroke-linecap:square;stroke-miterlimit:10;}
+</style>
+<g id="XMLID_28_">
+	<path id="XMLID_126_" class="st0" d="M141.1,228.8l0-20.6h20.6h2.7c2.9,0,5.2,2,5.8,4.7c0.1,0.4,0.1,0.8,0.1,1.3v14.7h-15.8"/>
+	<path id="XMLID_129_" class="st0" d="M127.7,117.7c0,5,4,9,9,9h8.8c5,0,9-4,9-9v-8.8c0-5-4-9-9-9H134"/>
+	<path id="XMLID_128_" class="st0" d="M88.3,99.9H76.8c-5,0-9,4-9,9v8.8c0,5,4,9,9,9h8.8c5,0,9-4,9-9"/>
+	<path id="XMLID_27_" class="st1" d="M166.2,106.5c0-9.6-7.7-17.3-17.3-17.3H73.5c-9.6,0-17.3,7.7-17.3,17.3v25.3
+		c0,9.6,7.7,17.3,17.3,17.3h7.7h41.1l1.5,0c1.2,0,2.5,0.1,3.6,0.4c7.8,1.6,13.7,8.1,13.7,15.9v7.3v35.5v20.6c0,0-59.9,0-59.9,0
+		l0-20.6H60.6h-2.7c-2.9,0-5.2,2-5.8,4.7c-0.1,0.4-0.1,0.8-0.1,1.3v14.7h14.6"/>
+	<path id="XMLID_125_" class="st0" d="M124.6,133.6c0,5-4,9-9,9h-8.8c-5,0-9-4-9-9"/>
+	<path id="XMLID_127_" class="st0" d="M81.2,162.8c1.6-7.8,8.1-13.7,15.9-13.7"/>
+</g>
 </svg>
