@@ -1,4 +1,5 @@
 #include <avr/io.h>
+#include <util/delay.h>
 #include "uart.h"
 #include "servo.h"
 #include "board.h"
@@ -7,9 +8,8 @@
 
 int main(void)
 {
+    board_init();
     uart_init();
     servo_init();
-    board_init();
-    x_fstep();
-    y_fstep();
+    puts("\ndone!\n");
 }

@@ -13,8 +13,11 @@ void y_micro_fstep();
 void y_micro_bstep();
 void reset();
 
-int X_STATE = 0x01;
-int Y_STATE = 0x10;
+int X_STEP_STATE = 1;
+int Y_STEP_STATE = 1;
+
+int X_MICRO_STATE = 0x01;
+int Y_MICRO_STATE = 0x10;
 
 
 void board_init()
@@ -28,7 +31,7 @@ void board_init()
 
 void reset()
 {
-    _delay_ms(500);
+    _delay_ms(1000);
     x_micro_fstep();
     x_micro_bstep();
     y_micro_fstep();
@@ -49,10 +52,14 @@ void reset()
 
 void x_fstep()
 {
+    if (X_STEP_STATE == 8){ return; }
+
     for (int i=0; i<X_MICRO_STEPS; i++)
     {
         x_micro_fstep();
     }
+
+    X_STEP_STATE++;
 }
 
 void x_bstep()
@@ -62,16 +69,21 @@ void x_bstep()
         if (PINC & (1 << PINC4))
         {
             x_micro_bstep();
-        }else { return; }
+        }else { break; }
     }
+    X_STEP_STATE--;
 }
 
 void y_fstep()
 {
+    if (Y_STEP_STATE == 8){ return; }
+
     for (int i=0; i<Y_MICRO_STEPS; i++)
     {
         y_micro_fstep();
     }
+
+    Y_STEP_STATE++;
 }
 
 void y_bstep()
@@ -81,38 +93,40 @@ void y_bstep()
         if (PINC & (1 << PINC4))
         {
             y_micro_bstep();
-        }else { return; }
+        }else { break; }
     }
+
+    Y_STEP_STATE--;
 }
 
 void x_micro_fstep()
 {
-    PORTC = X_STATE;
+    PORTC = X_MICRO_STATE;
     _delay_ms(X_WAIT);
     PORTC = 0x00;
-    X_STATE = (X_STATE == 0x08)? 0x01 : (X_STATE <<= 1);
+    X_MICRO_STATE = (X_MICRO_STATE == 0x08)? 0x01 : (X_MICRO_STATE <<= 1);
 }
 
 void x_micro_bstep()
 {
-    PORTC = X_STATE;
+    PORTC = X_MICRO_STATE;
     _delay_ms(X_WAIT);
     PORTC = 0x00;
-    X_STATE = (X_STATE == 0x01)? 0x08 : (X_STATE >>= 1);
+    X_MICRO_STATE = (X_MICRO_STATE == 0x01)? 0x08 : (X_MICRO_STATE >>= 1);
 }
 
 void y_micro_fstep()
 {
-    PORTD = Y_STATE;
+    PORTD = Y_MICRO_STATE;
     _delay_ms(Y_WAIT);
     PORTD = 0x00;
-    Y_STATE = (Y_STATE == 0x80)? 0x10 : (Y_STATE <<= 1);
+    Y_MICRO_STATE = (Y_MICRO_STATE == 0x80)? 0x10 : (Y_MICRO_STATE <<= 1);
 }
 
 void y_micro_bstep()
 {
-    PORTD = Y_STATE;
+    PORTD = Y_MICRO_STATE;
     _delay_ms(Y_WAIT);
     PORTD = 0x00;
-    Y_STATE = (Y_STATE == 0x10)? 0x80 : (Y_STATE >>= 1);
+    Y_MICRO_STATE = (Y_MICRO_STATE == 0x10)? 0x80 : (Y_MICRO_STATE >>= 1);
 }
