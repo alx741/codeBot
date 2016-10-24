@@ -18,13 +18,13 @@ void servo_init()
     ICR1=4999; // PWM = 50Hz
     DDRB|=(1<<PORTB1)|(1<<PORTB2);
     servo_set(ANGLE_START);
-    _delay_ms(1000);
+    _delay_ms(300);
     servo_set(ANGLE_MIDDLE);
-    _delay_ms(1000);
+    _delay_ms(300);
     servo_set(ANGLE_END);
-    _delay_ms(1000);
+    _delay_ms(300);
     servo_set(ANGLE_MIDDLE);
-    _delay_ms(1000);
+    _delay_ms(300);
     servo_set(ANGLE_START);
 }
 
