@@ -2,10 +2,10 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define X_MICRO_STEPS 50
-#define Y_MICRO_STEPS 50
+#define X_MICRO_STEPS 76
+#define Y_MICRO_STEPS 60
 #define X_WAIT 12
-#define Y_WAIT 10
+#define Y_WAIT 12
 
 void x_micro_fstep();
 void x_micro_bstep();
@@ -28,7 +28,12 @@ void board_init()
 
 void reset()
 {
-    _delay_ms(1000);
+    _delay_ms(500);
+    x_micro_fstep();
+    x_micro_bstep();
+    y_micro_fstep();
+    y_micro_bstep();
+
     // Reset X axis
     while (PINC & (1 << PINC5))
     {
@@ -36,11 +41,10 @@ void reset()
     }
 
     // Reset Y axis
-    /* y_bstep(); */
-    /* while (PINC & (1 << PINC4)) */
-    /* { */
-    /*     y_micro_bstep(); */
-    /* } */
+    while (PINC & (1 << PINC4))
+    {
+        y_micro_bstep();
+    }
 }
 
 void x_fstep()
@@ -55,7 +59,10 @@ void x_bstep()
 {
     for (int i=0; i<X_MICRO_STEPS; i++)
     {
-        x_micro_bstep();
+        if (PINC & (1 << PINC4))
+        {
+            x_micro_bstep();
+        }else { return; }
     }
 }
 
@@ -71,7 +78,10 @@ void y_bstep()
 {
     for (int i=0; i<Y_MICRO_STEPS; i++)
     {
-        y_micro_bstep();
+        if (PINC & (1 << PINC4))
+        {
+            y_micro_bstep();
+        }else { return; }
     }
 }
 
