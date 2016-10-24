@@ -9,7 +9,7 @@
 int main(void)
 {
     board_init();
-    uart_init();
     servo_init();
+    uart_init();
     puts("\ndone!\n");
 }
