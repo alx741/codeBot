@@ -17,12 +17,12 @@ void servo_init()
     TCCR1B|=(1<<WGM13)|(1<<WGM12)|(1<<CS11)|(1<<CS10); // Fast PWM
     ICR1=4999; // PWM = 50Hz
     DDRB|=(1<<PORTB1)|(1<<PORTB2);
+    servo_reset();
+}
 
+void servo_reset()
+{
     servo_set(ANGLE_START);
-    _delay_ms(500);
-    servo_set(ANGLE_MIDDLE);
-    _delay_ms(500);
-    servo_set(ANGLE_END);
     _delay_ms(500);
     servo_set(ANGLE_MIDDLE);
     _delay_ms(500);

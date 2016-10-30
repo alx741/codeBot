@@ -26,10 +26,10 @@ void board_init()
     PORTC = 0x00;
     DDRD = 0b01111000;
     PORTD |= 0b00000000;
-    reset();
+    board_reset();
 }
 
-void reset()
+void board_reset()
 {
     _delay_ms(1000);
     x_micro_fstep();

@@ -2,7 +2,7 @@
 #define _BOARD_H
 
 void board_init();
-void board_calibration();
+void board_reset();
 void x_fstep();
 void y_fstep();
 void x_bstep();
