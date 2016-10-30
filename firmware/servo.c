@@ -3,11 +3,11 @@
 #include <util/delay.h>
 
 #define SERVO_180 560
-#define SERVO_90 365
+#define SERVO_90 355
 #define SERVO_0 140
-#define SERVO_STEP 50
+#define SERVO_STEP 10
 
-#define SERVO_ANGLE_START 210
+#define SERVO_ANGLE_START 215
 #define SERVO_ANGLE_MIDDLE SERVO_90
 #define SERVO_ANGLE_END 520
 

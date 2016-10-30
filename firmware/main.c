@@ -6,10 +6,13 @@
 
 #define F_CPU 16000000
 
-int main(void)
+void init(void)
 {
     board_init();
     servo_init();
     uart_init();
-    puts("\ndone!\n");
+}
+
+int main(void)
+{
 }
