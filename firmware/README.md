@@ -13,6 +13,7 @@ Serial 9600baud communication.
 * Every command starts with a `;`.
 * Only send a command after the prompt `>` is received.
 * Invalid commands are dismissed.
+* Commands that force the hardware beyond physical constraints are dismissed.
 
 ### Command construction
 

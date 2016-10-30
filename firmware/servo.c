@@ -48,9 +48,17 @@ void servo_set(angle a)
 void servo_fstep()
 {
         OCR1A += SERVO_STEP;
+        if (OCR1A >= SERVO_ANGLE_END)
+        {
+            servo_set(ANGLE_END);
+        }
 }
 
 void servo_bstep()
 {
         OCR1A -= SERVO_STEP;
+        if (OCR1A <= SERVO_ANGLE_START)
+        {
+            servo_set(ANGLE_START);
+        }
 }
