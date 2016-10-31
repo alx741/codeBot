@@ -66,7 +66,7 @@ void x_bstep()
 {
     for (int i=0; i<X_MICRO_STEPS; i++)
     {
-        if (PINC & (1 << PINC4))
+        if (PINC & (1 << PINC5))
         {
             x_micro_bstep();
         }else { break; }
