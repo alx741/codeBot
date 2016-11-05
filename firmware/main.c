@@ -7,7 +7,7 @@
 
 #define F_CPU 16000000
 
-#define COMMAND_PROMPT "\n>"
+#define COMMAND_PROMPT '>'
 #define COMMAND_END ';'
 
 void init(void)
@@ -63,6 +63,6 @@ int main(void)
         execute_command(command);
         memset(command, 0, com_max);
         _delay_ms(50);
-        puts(COMMAND_PROMPT);
+        putchar(COMMAND_PROMPT);
     }
 }
