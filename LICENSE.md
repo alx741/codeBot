@@ -27,8 +27,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-# Hardware
-# Artwork
+# Hardware & Art work
 
 ![CC](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
