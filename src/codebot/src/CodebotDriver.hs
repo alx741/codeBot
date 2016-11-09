@@ -5,22 +5,23 @@ module CodebotDriver
   , command
   ) where
 
+import Control.Monad
 import Data.ByteString.Char8 as B
 import System.Hardware.Serialport
 
 data Direction
-  = Forward
-  | Backward
+    = Forward
+    | Backward
 
 data Axis
-  = X
-  | Y
-  | Servo
+    = X
+    | Y
+    | Servo
 
 data Command
-  = Command Axis
-            Direction
-  | Reset
+    = Command Axis
+              Direction
+    | Reset
 
 type RawCommand = String
 
@@ -40,19 +41,17 @@ composeCommand Reset = "r;"
 
 perfomeCommand :: RawCommand -> IO ()
 perfomeCommand command = do
-  sp <-
-    openSerial
-      port
-      defaultSerialSettings
-      { commSpeed = CS9600
-      }
-  _ <- send sp $ B.pack command
-  _ <- waitHardware sp
-  return ()
+    sp <-
+        openSerial
+            port
+            defaultSerialSettings
+            { commSpeed = CS9600
+            }
+    _ <- send sp $ B.pack command
+    _ <- waitHardware sp
+    return ()
 
 waitHardware :: SerialPort -> IO ()
 waitHardware sp = do
-  char <- recv sp 1
-  if (B.pack ">" == char)
-    then return ()
-    else waitHardware sp
+    char <- recv sp 1
+    unless (B.pack ">" == char) $ waitHardware sp
