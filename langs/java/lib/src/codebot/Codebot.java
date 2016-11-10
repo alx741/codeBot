@@ -2,22 +2,27 @@ package codebot;
 
 public class Codebot
 {
-    public static enum Axis { X, Y }
     public static enum Direction { FORWARD, BACKWARD }
+    public static enum Axis { X, Y }
 
-    public static void step(Axis axis, Direction direction)
+    public static void init()
     {
-        movement("Step", axis, direction);
+        System.out.println("Init");
     }
 
-    public static void jump(Axis axis, Direction direction)
+    public static void step(Direction direction, Axis axis)
     {
-        movement("Jump", axis, direction);
+        movement("Step", direction, axis);
     }
 
-    public static void openDoor(Axis axis, Direction direction)
+    public static void jump(Direction direction, Axis axis)
     {
-        movement("Open Door", axis, direction);
+        movement("Jump", direction, axis);
+    }
+
+    public static void openDoor(Direction direction, Axis axis)
+    {
+        movement("Open Door", direction, axis);
     }
 
     public static void pickUp()
@@ -35,7 +40,7 @@ public class Codebot
         System.out.println("Interact");
     }
 
-    private static void movement(String string, Axis axis, Direction direction)
+    private static void movement(String string, Direction direction, Axis axis)
     {
         if (axis == Axis.X)
         {

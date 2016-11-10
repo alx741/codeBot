@@ -7,22 +7,22 @@ public class Main
     public static void main(String args[])
     {
         System.out.println("\n-- Stepping");
-        Codebot.step(Axis.X, Direction.FORWARD);
-        Codebot.step(Axis.Y, Direction.FORWARD);
-        Codebot.step(Axis.X, Direction.BACKWARD);
-        Codebot.step(Axis.Y, Direction.BACKWARD);
+        Codebot.step(Direction.FORWARD, Axis.X);
+        Codebot.step(Direction.FORWARD, Axis.Y);
+        Codebot.step(Direction.BACKWARD, Axis.X);
+        Codebot.step(Direction.BACKWARD, Axis.Y);
 
         System.out.println("\n-- Jumping");
-        Codebot.jump(Axis.X, Direction.FORWARD);
-        Codebot.jump(Axis.Y, Direction.FORWARD);
-        Codebot.jump(Axis.X, Direction.BACKWARD);
-        Codebot.jump(Axis.Y, Direction.BACKWARD);
+        Codebot.jump(Direction.FORWARD, Axis.X);
+        Codebot.jump(Direction.FORWARD, Axis.Y);
+        Codebot.jump(Direction.BACKWARD, Axis.X);
+        Codebot.jump(Direction.BACKWARD, Axis.Y);
 
         System.out.println("\n-- Opening Doors");
-        Codebot.openDoor(Axis.X, Direction.FORWARD);
-        Codebot.openDoor(Axis.Y, Direction.FORWARD);
-        Codebot.openDoor(Axis.X, Direction.BACKWARD);
-        Codebot.openDoor(Axis.Y, Direction.BACKWARD);
+        Codebot.openDoor(Direction.FORWARD, Axis.X);
+        Codebot.openDoor(Direction.FORWARD, Axis.Y);
+        Codebot.openDoor(Direction.BACKWARD, Axis.X);
+        Codebot.openDoor(Direction.BACKWARD, Axis.Y);
 
         System.out.println("\n-- Picking up objects");
         Codebot.pickUp();
