@@ -1,0 +1,4 @@
+*.class
+*.jar
+lib/build
+lib/dist
