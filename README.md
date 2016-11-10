@@ -2,6 +2,13 @@
 
 A friendly little guy meant to be used as a programming teaching resource.
 
+
+# Supported Languages
+
+* Java
+* Python
+
+
 # Components
 
 Each subdirectory contains its own README file with more detailed information
