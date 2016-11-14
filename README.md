@@ -1,4 +1,4 @@
-![codebot](./art-work/logo.png)
+![codebot](./logo.png)
 
 A friendly little guy meant to be used as a programming teaching resource.
 
