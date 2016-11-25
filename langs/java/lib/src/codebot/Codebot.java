@@ -22,12 +22,12 @@ public class Codebot
 
     public static void openDoor(Direction direction, Axis axis)
     {
-        movement("Open Door", direction, axis);
+        movement("OpenDoor", direction, axis);
     }
 
     public static void pickUp()
     {
-        System.out.println("Pick Up");
+        System.out.println("PickUp");
     }
 
     public static void drop()

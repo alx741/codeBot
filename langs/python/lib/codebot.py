@@ -14,7 +14,7 @@ def openDoor(direction, axis):
     movement("openDoor", direction, axis)
 
 def pickUp():
-    print("Pick Up");
+    print("PickUp");
 
 def drop():
     print("Drop");

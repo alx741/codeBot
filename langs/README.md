@@ -27,10 +27,10 @@ this README file is).
     prints: "Jump [Axis] [Direction]"
 
 - openDoor(axis, direction) ::
-    prints: "Open Door [Axis] [Direction]"
+    prints: "OpenDoor [Axis] [Direction]"
 
 - pickUp() ::
-    prints: "Pick Up"
+    prints: "PickUp"
 
 - drop() ::
     prints: "Drop"
