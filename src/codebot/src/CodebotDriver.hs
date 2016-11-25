@@ -1,34 +1,18 @@
 module CodebotDriver
-  ( Command(..)
-  , Axis(..)
-  , Direction(..)
-  , command
+  ( hardwareExecute
   ) where
 
+import Command
 import Control.Monad
 import Data.ByteString.Char8 as B
 import System.Hardware.Serialport
-
-data Direction
-    = Forward
-    | Backward
-
-data Axis
-    = X
-    | Y
-    | Servo
-
-data Command
-    = Command Axis
-              Direction
-    | Reset
 
 type RawCommand = String
 
 port = "/dev/ttyUSB1"
 
-command :: Command -> IO ()
-command = perfomeCommand . composeCommand
+hardwareExecute :: Command -> IO ()
+hardwareExecute = perfomeCommand . composeCommand
 
 composeCommand :: Command -> RawCommand
 composeCommand (Command X Forward) = "x:f;"
