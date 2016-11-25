@@ -5,6 +5,13 @@ functions/methods which just prints to *stdout* the appropriate strings for the
 corresponding actions in a new line each.
 
 
+# Compiling
+
+Each language contains an example `Makefile` and code. The environment variable
+`CODEBOT_LANGPATH` *must* be set to the codebot languages root directory (where
+this README file is).
+
+
 # Common Interface
 
 [Axis] = X | Y
