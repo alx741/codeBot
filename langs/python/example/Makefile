@@ -1,2 +1,4 @@
+LIBPATH=$(CODEBOT_LANGPATH)/python/lib/
+
 exec:
-	PYTHONPATH=../lib python main.py
+	PYTHONPATH=$(LIBPATH) python main.py
