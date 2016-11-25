@@ -5,7 +5,7 @@ import Command
 
 main :: IO ()
 main = do
-    hardwareExecute (Command X Forward)
-    hardwareExecute (Command X Backward)
-    hardwareExecute (Command Y Forward)
-    hardwareExecute (Command Y Backward)
+    hardwareExecute (HardwareCommand X Forward)
+    hardwareExecute (HardwareCommand X Backward)
+    hardwareExecute (HardwareCommand Y Forward)
+    hardwareExecute (HardwareCommand Y Backward)

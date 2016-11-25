@@ -11,16 +11,16 @@ type RawCommand = String
 
 port = "/dev/ttyUSB1"
 
-hardwareExecute :: Command -> IO ()
+hardwareExecute :: HardwareCommand -> IO ()
 hardwareExecute = perfomeCommand . composeCommand
 
-composeCommand :: Command -> RawCommand
-composeCommand (Command X Forward) = "x:f;"
-composeCommand (Command Y Forward) = "y:f;"
-composeCommand (Command X Backward) = "x:b;"
-composeCommand (Command Y Backward) = "y:b;"
-composeCommand (Command Servo Forward) = "s:f;"
-composeCommand (Command Servo Backward) = "s:b;"
+composeCommand :: HardwareCommand -> RawCommand
+composeCommand (HardwareCommand X Forward) = "x:f;"
+composeCommand (HardwareCommand Y Forward) = "y:f;"
+composeCommand (HardwareCommand X Backward) = "x:b;"
+composeCommand (HardwareCommand Y Backward) = "y:b;"
+composeCommand (HardwareCommand Servo Forward) = "s:f;"
+composeCommand (HardwareCommand Servo Backward) = "s:b;"
 composeCommand Reset = "r;"
 
 perfomeCommand :: RawCommand -> IO ()
