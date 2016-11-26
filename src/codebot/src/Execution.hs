@@ -1,4 +1,6 @@
-module Execution where
+module Execution
+  ( readCommandsFile
+  ) where
 
 import Command
 import Data.List
@@ -7,7 +9,8 @@ import Safe
 validCommands = ["Step", "Jump", "OpenDoor", "PickUp", "Drop", "Interact"]
 
 readCommandsFile :: FilePath -> IO [Command]
-readCommandsFile fp = readFile fp >>= return . map read . filter isCommand . lines
+readCommandsFile fp =
+    readFile fp >>= return . map read . filter isCommand . lines
 
 isCommand :: String -> Bool
 isCommand str =
