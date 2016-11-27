@@ -1,5 +1,6 @@
 module CodebotDriver
   ( hardwareExecute
+  , HardwareCommand(..)
   ) where
 
 import Command
@@ -8,6 +9,11 @@ import Data.ByteString.Char8 as B
 import System.Hardware.Serialport
 
 type RawCommand = String
+
+data HardwareCommand
+    = HardwareCommand Axis
+                      Direction
+    | Reset
 
 port = "/dev/ttyUSB1"
 

@@ -1,9 +1,11 @@
 module Command
-  ( HardwareCommand(..)
-  , Command(..)
+  ( Command(..)
   , Axis(..)
   , Direction(..)
+  , readCommandsFile
   ) where
+
+import Safe
 
 data Axis
     = X
@@ -28,7 +30,16 @@ data Command
     | Interact
     deriving (Show, Read)
 
-data HardwareCommand
-    = HardwareCommand Axis
-                      Direction
-    | Reset
+validCommands = ["Step", "Jump", "OpenDoor", "PickUp", "Drop", "Interact"]
+
+readCommandsFile :: FilePath -> IO [Command]
+readCommandsFile fp =
+    readFile fp >>= return . map read . filter isCommand . lines
+
+isCommand :: String -> Bool
+isCommand str =
+    case firstWord of
+        Just word -> word `elem` validCommands
+        Nothing -> False
+  where
+    firstWord = headMay . words $ str
