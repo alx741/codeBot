@@ -42,6 +42,10 @@ data ObjectType
 readBoardFile :: FilePath -> Board
 readBoardFile = undefined
 
+boardDropTile :: Bool -> Board -> Position -> Board
+boardDropTile False board _ = board
+boardDropTile True board pos = dropTile board pos
+
 dropTile :: Board -> Position -> Board
 dropTile board position =
     case cell of
