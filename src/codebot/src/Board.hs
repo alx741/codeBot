@@ -42,10 +42,28 @@ data ObjectType
 readBoardFile :: FilePath -> Board
 readBoardFile = undefined
 
-getCell :: Position -> Board -> Maybe Cell
-getCell position board =
+dropTile :: Board -> Position -> Board
+dropTile board position =
+    case cell of
+        Just (Tile _) -> board'
+        _ -> board
+  where
+    cell = getCell board position
+    board' = replaceInBoard position board Empty
+
+replaceInBoard :: Position -> Board -> Cell -> Board
+replaceInBoard (Position x y _) board cell =
+    replaceNth y (replaceNth x cell (board !! y)) board
+
+replaceNth :: Int -> a -> [a] -> [a]
+replaceNth n elem (x:xs)
+    | n == 0 = elem:xs
+    | otherwise = x:replaceNth (n-1) elem xs
+
+getCell :: Board -> Position -> Maybe Cell
+getCell board position =
     case isValidPosition position of
-        Just position' -> Just (board !! x position' !! y position')
+        Just position' -> Just (board !! y position' !! x position')
         Nothing -> Nothing
 
 move :: Position -> Direction -> Axis -> Maybe Position
