@@ -1,0 +1,18 @@
+%YAML 1.1
+---
+Code: '0000'
+Difficulty: easy    # easy, medium, hard
+Exercise: This is the template exercise, use it to generate new ones.
+
+Energy: 100         # Max number of steps the bot can perfome
+Drop_Tiles: true    # Does the tiles fall after the bot steps out of them?
+Board:              # 8x8 Cells board
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+  - [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
+...
