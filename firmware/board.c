@@ -120,7 +120,7 @@ void y_micro_fstep()
     PORTD = Y_MICRO_STATE;
     _delay_ms(Y_WAIT);
     PORTD = 0x00;
-    Y_MICRO_STATE = (Y_MICRO_STATE == 0x80)? 0x10 : (Y_MICRO_STATE <<= 1);
+    Y_MICRO_STATE = (Y_MICRO_STATE == 0x10)? 0x80 : (Y_MICRO_STATE >>= 1);
 }
 
 void y_micro_bstep()
@@ -128,5 +128,5 @@ void y_micro_bstep()
     PORTD = Y_MICRO_STATE;
     _delay_ms(Y_WAIT);
     PORTD = 0x00;
-    Y_MICRO_STATE = (Y_MICRO_STATE == 0x10)? 0x80 : (Y_MICRO_STATE >>= 1);
+    Y_MICRO_STATE = (Y_MICRO_STATE == 0x80)? 0x10 : (Y_MICRO_STATE <<= 1);
 }
