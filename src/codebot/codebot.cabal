@@ -23,6 +23,10 @@ library
                      , serialport
                      , bytestring
                      , safe
+                     , mtl
+                     , containers
+                     , transformers
+                     , yaml-light
   default-language:    Haskell2010
 
 executable codebot-exe

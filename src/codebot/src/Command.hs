@@ -38,8 +38,6 @@ readCommandsFile fp =
 
 isCommand :: String -> Bool
 isCommand str =
-    case firstWord of
-        Just word -> word `elem` validCommands
-        Nothing -> False
+    maybe False (`elem` validCommands) firstWord
   where
     firstWord = headMay . words $ str

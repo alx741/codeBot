@@ -1,6 +1,11 @@
 module Board where
 
 import Command
+import Control.Monad.Trans
+import Control.Monad.Trans.Maybe
+import Control.Monad
+import Data.ByteString.Char8 (pack, unpack)
+import Data.Yaml.YamlLight
 
 type Board = [[Cell]]
 
@@ -18,17 +23,17 @@ data Cell
     | Object ObjectType
     | Socket ObjectType
              SocketState
-    deriving (Show, Eq)
+    deriving (Show, Read, Eq)
 
 data DoorState
     = Open
     | Close
-    deriving (Show, Eq)
+    deriving (Show, Read, Eq)
 
 data SocketState
     = SocketFull
     | SocketEmpty
-    deriving (Show, Eq)
+    deriving (Show, Read, Eq)
 
 data ObjectType
     = Key
@@ -37,10 +42,32 @@ data ObjectType
     | Circle
     | Star
     | Diamond
-    deriving (Show, Eq)
+    deriving (Show, Read, Eq)
 
-readBoardFile :: FilePath -> Board
-readBoardFile = undefined
+fp = "/home/alx/lab/codebot/exercises/template/exercise.yaml"
+
+
+readBoardFile :: FilePath -> MaybeT IO [[Cell]]
+readBoardFile fp = MaybeT $ do
+    yam <- runMaybeT $ getYamlBoard fp
+    return $ yam >>= unSeq >>= Just . map (map read . tobemapped)
+    where
+    getYamlBoard :: FilePath -> MaybeT IO YamlLight
+    getYamlBoard fp = MaybeT $ do
+        ymap <- parseYamlFile fp
+        return $ lookupYL (YStr $ pack "Board") ymap
+
+
+tobemapped :: YamlLight -> [String]
+tobemapped (YSeq []) = []
+tobemapped (YSeq (YStr x:xs)) = unpack x : (tobemapped $ YSeq xs)
+
+mmain :: IO ()
+mmain = do
+    board <- runMaybeT $ readBoardFile fp
+    case board of
+        Just seq -> Prelude.putStrLn $ show board
+        Nothing -> return ()
 
 boardDropTile :: Bool -> Board -> Position -> Board
 boardDropTile False board _ = board
@@ -61,8 +88,8 @@ replaceInBoard (Position x y _) board cell =
 
 replaceNth :: Int -> a -> [a] -> [a]
 replaceNth n elem (x:xs)
-    | n == 0 = elem:xs
-    | otherwise = x:replaceNth (n-1) elem xs
+    | n == 0 = elem : xs
+    | otherwise = x : replaceNth (n - 1) elem xs
 
 getCell :: Board -> Position -> Maybe Cell
 getCell board position =

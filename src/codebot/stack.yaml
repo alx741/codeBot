@@ -4,4 +4,6 @@ packages:
 - '.'
 extra-deps:
 - serialport-0.4.7
+- HsSyck-0.53
+- yaml-light-0.1.4
 resolver: lts-7.7

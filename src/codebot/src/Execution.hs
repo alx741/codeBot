@@ -50,6 +50,7 @@ canStep _ cell =
     case cell of
         Tile 0 -> True
         Door Open -> True
+        Object _ -> True
         Socket _ SocketFull -> True
         _ -> False
 
