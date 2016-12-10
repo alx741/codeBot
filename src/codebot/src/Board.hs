@@ -44,30 +44,19 @@ data ObjectType
     | Diamond
     deriving (Show, Read, Eq)
 
-fp = "/home/alx/lab/codebot/exercises/template/exercise.yaml"
-
-
 readBoardFile :: FilePath -> MaybeT IO [[Cell]]
 readBoardFile fp = MaybeT $ do
     yam <- runMaybeT $ getYamlBoard fp
-    return $ yam >>= unSeq >>= Just . map (map read . tobemapped)
+    return $ yam >>= unSeq >>= Just . map (map read . getStringBoard)
     where
-    getYamlBoard :: FilePath -> MaybeT IO YamlLight
-    getYamlBoard fp = MaybeT $ do
-        ymap <- parseYamlFile fp
-        return $ lookupYL (YStr $ pack "Board") ymap
+        getYamlBoard :: FilePath -> MaybeT IO YamlLight
+        getYamlBoard fp = MaybeT $ do
+            ymap <- parseYamlFile fp
+            return $ lookupYL (YStr $ pack "Board") ymap
 
-
-tobemapped :: YamlLight -> [String]
-tobemapped (YSeq []) = []
-tobemapped (YSeq (YStr x:xs)) = unpack x : (tobemapped $ YSeq xs)
-
-mmain :: IO ()
-mmain = do
-    board <- runMaybeT $ readBoardFile fp
-    case board of
-        Just seq -> Prelude.putStrLn $ show board
-        Nothing -> return ()
+        getStringBoard :: YamlLight -> [String]
+        getStringBoard (YSeq []) = []
+        getStringBoard (YSeq (YStr x:xs)) = unpack x : getStringBoard (YSeq xs)
 
 boardDropTile :: Bool -> Board -> Position -> Board
 boardDropTile False board _ = board
