@@ -1,7 +1,7 @@
 module Execution where
 
-import Command
 import Board
+import Command
 import Data.List
 import Data.Maybe
 

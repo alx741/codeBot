@@ -1,9 +1,4 @@
-module Command
-  ( Command(..)
-  , Axis(..)
-  , Direction(..)
-  , readCommandsFile
-  ) where
+module Command where
 
 import Safe
 
