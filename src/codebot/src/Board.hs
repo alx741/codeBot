@@ -27,7 +27,7 @@ data Cell
 
 data DoorState
     = Open
-    | Close
+    | Closed
     deriving (Show, Read, Eq)
 
 data SocketState
