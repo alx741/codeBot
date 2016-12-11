@@ -116,38 +116,7 @@ isValidPosition position
     validX = x position >= 0 && x position <= 7
     validY = y position >= 0 && y position <= 7
 
-board :: Board
-board =
-    [ [ Tile 1
-      , Tile 0
-      , Tile 1
-      , Tile 2
-      , Tile 0
-      , Object Triangle
-      , Tile 0
-      , Tile 0
-      ]
-    , [Door Close, Empty, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
-    , [Tile 0, Tile 0, Object Circle, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
-    , [Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
-    , [ Tile 0
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      , Socket Triangle SocketEmpty
-      , Tile 0
-      ]
-    , [ Tile 0
-      , Tile 0
-      , Socket Circle SocketEmpty
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      , Tile 0
-      ]
-    , [Tile 0, Tile 0, Tile 0, Tile 0, Door Close, Tile 0, Tile 0, Tile 0]
-    , [Tile 0, Tile 0, Object Key, Tile 0, Tile 0, Tile 0, Tile 0, Tile 0]
-    ]
+emptyBoard :: Board
+emptyBoard = (make8 . make8) (Tile 0)
+    where
+        make8 = replicate 8

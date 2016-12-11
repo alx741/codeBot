@@ -4,6 +4,7 @@ import Board
 import Command
 import Data.List
 import Data.Maybe
+import Debug.Trace
 
 isSafeCommand :: Command -> Position -> Board -> Bool
 isSafeCommand = undefined
@@ -16,39 +17,29 @@ step :: (Position, Board)
      -> Axis
      -> Bool
      -> Maybe (Position, Board)
-step (position, board) direction axis drop =
-    if isActionFeasible canStep position position' board
-        then position' >>= (\x -> Just (x, boardDropTile drop board x))
-        else Nothing
-  where
-    position' = move position direction axis
+step (position, board) direction axis drop = do
+    position' <- move position direction axis >>= actionFeasible canStep board position
+    return (position', boardDropTile drop board position)
 
-jump :: (Position, Board)
-     -> Direction
-     -> Axis
-     -> Bool
-     -> Maybe (Position, Board)
-jump (position, board) direction axis drop =
-    if isActionFeasible canJump position position' board
-        then position' >>= (\x -> Just (x, boardDropTile drop board x))
-        else Nothing
-  where
-    position' = move position direction axis
-
-isActionFeasible :: (Cell -> Cell -> Bool)
+actionFeasible :: (Cell -> Cell -> Bool)
+                 -> Board
+                 -> Position
                  -> Position
                  -> Maybe Position
-                 -> Board
-                 -> Bool
-isActionFeasible canDo pos pos' board =
-    case getCell board pos of
-        Just cell -> isJust $ canDo cell <$> (pos' >>= getCell board)
-        Nothing -> False
+actionFeasible canDo board pos pos' = do
+    cell <- getCell board pos
+    cell' <- getCell board pos'
+    if pos /= pos' && canDo cell cell'
+        then return pos'
+        else Nothing
 
 canStep :: Cell -> Cell -> Bool
-canStep _ cell =
-    case cell of
-        Tile 0 -> True
+canStep cell cell' =
+    case cell' of
+        Tile n ->
+            case cell of
+                Tile m -> n == m
+                _ -> False
         Door Open -> True
         Object _ -> True
         Socket _ SocketFull -> True
