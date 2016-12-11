@@ -21,6 +21,23 @@ step (position, board) direction axis drop = do
     position' <- move position direction axis >>= actionFeasible canStep board position
     return (position', boardDropTile drop board position)
 
+jump :: (Position, Board)
+     -> Direction
+     -> Axis
+     -> Bool
+     -> Maybe (Position, Board)
+jump (position, board) direction axis drop = do
+    position' <- move position direction axis >>= actionFeasible canJump board position
+    return (position', boardDropTile drop board position)
+
+openDoor :: (Position, Board)
+     -> Direction
+     -> Axis
+     -> Maybe (Position, Board)
+openDoor (position, board) direction axis = do
+    position' <- move position direction axis >>= actionFeasible canOpenDoor board position
+    return (position, replaceInBoard position' board (Door Open))
+
 actionFeasible :: (Cell -> Cell -> Bool)
                  -> Board
                  -> Position
@@ -52,4 +69,10 @@ canJump cell cell' =
             case cell' of
                 Tile m -> n == m + 1 || n == m - 1
                 _ -> False
+        _ -> False
+
+canOpenDoor :: Cell -> Cell -> Bool
+canOpenDoor _ cell' =
+    case cell' of
+        Door Closed -> True
         _ -> False
