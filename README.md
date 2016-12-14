@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/alx741/codebot.svg?style=shield)](https://circleci.com/gh/alx741/codebot)
+
 ![codebot](./logo.png)
 
 A friendly little guy meant to be used as a programming teaching resource.
