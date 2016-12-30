@@ -8,7 +8,7 @@ TASK_RUNNER=stack
 BUILD_COMMAND=$(TASK_RUNNER) build
 TEST_COMMAND=$(TASK_RUNNER) test
 
-export TDDLIGHT_COMPORT=/dev/ttyUSB1
+export TDDLIGHT_COMPORT=/dev/ttyUSB0
 
 .PHONY: test build
 
