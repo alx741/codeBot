@@ -1,2 +1,2 @@
 general:
-  build_dir: src/codebot
+  build_dir: codebot
