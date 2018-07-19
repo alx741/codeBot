@@ -9,8 +9,9 @@ jobs:
                 keys:
                     - stack-cache-v1
             - run:
-                command: stack test --fast --install-ghc
-                workind_directory: codebot
+                command: |
+                    cd codebot
+                    stack test --fast --install-ghc
             - save_cache:
                 key: stack-cache-v1
                 paths:
